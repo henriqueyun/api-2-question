@@ -1,0 +1,22 @@
+{
+  "name": "api-2-question",
+  "version": "1.0.0",
+  "description": "An API that receives an user info and a question then access ChatGPT public api to question answer in the user doc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henriqueyun/api-2-question.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "henriqueyun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henriqueyun/api-2-question/issues"
+  },
+  "homepage": "https://github.com/henriqueyun/api-2-question#readme"
+}
