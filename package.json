@@ -4,7 +4,7 @@
   "description": "An API that receives an user info and a question then access ChatGPT public api to question answer in the user doc.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "yarn jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/henriqueyun/api-2-question#readme",
   "devDependencies": {
-    "eslint": "^8.42.0"
+    "eslint": "^8.42.0",
+    "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.1.4",
+    "openai": "^3.2.1"
   }
 }
