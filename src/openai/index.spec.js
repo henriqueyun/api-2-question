@@ -1,9 +1,9 @@
 const { ask } = require("./index");
 
-describe("OPENAI Public API Call Test", function() {
+describe("OPENAI Public API Call Test", function () {
     test("simple question", async () => {
         const { answer } = await ask("Will Henrique be hired by Kenlo?");
-        
+
         expect(answer).toBeTruthy();
     });
 
