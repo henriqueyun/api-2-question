@@ -8,18 +8,20 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-async function question(prompt) {
+async function ask(prompt) {
+
+    if (!prompt) {
+        return { answer: ""};
+    }
+
     const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: [{ role: "user", content: prompt }],
     });
-
-    if (response.status !== 200) {
-        return "Sorry, couldn't hit Open AI Public API";
-    }
-    return response.data.choices[0].message.content;
+    
+    return { answer: response.data.choices[0].message.content };
 }
 
 module.exports = {
-    question
+    ask
 };

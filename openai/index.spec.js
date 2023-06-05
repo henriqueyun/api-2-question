@@ -1,8 +1,16 @@
-const { question } = require("./index");
+const { ask } = require("./index");
 
 describe("OPENAI Public API Call Test", function() {
-    test("Chat Completion", async () => {
-        const answer = await question("Will Henrique be hired by Kenlo?");
-        expect(answer).not.toBe("Sorry, couldn't hit Open AI Public API");
+    test("simple question", async () => {
+        const { answer } = await ask("Will Henrique be hired by Kenlo?");
+        
+        expect(answer).toBeTruthy();
+    });
+
+    test("empty question", async () => {
+        const { answer } = await ask();
+
+        expect(answer).toBeFalsy();
+        expect(answer).toBe("");
     });
 });
