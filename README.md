@@ -23,3 +23,7 @@ To run this project, make sure have ran the api-1-users and have completed the e
 ## Tests
 
 I didn't built many tests, but they're set n' up with, run then by `yarn install && yarn test`
+
+## Docs
+
+You could check the API Docs, built with Swagger, after running the app. through the /api-docs endpoint.
