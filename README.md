@@ -17,7 +17,7 @@ To run this project, make sure have ran the api-1-users and have completed the e
 
 2. Run a container and add it to api-1-users network with:
 ```
-./docker.run.sh
+./docker-run.sh
 ```
 
 ## Tests
