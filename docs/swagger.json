@@ -1,0 +1,135 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Question API",
+      "description": "An API that receives an user info and a question then access ChatGPT public api to question answer in the user doc.",
+      "contact": {
+        "email": "henriqueyun@gmail.com"
+      },
+      "license": {
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit/"
+      },
+      "version": "1.0.0"
+    },
+    "externalDocs": {
+      "description": "Check out the public API repository",
+      "url": "https://github.com/henriqueyun/api-2-question"
+    },
+    "tags": [
+      {
+        "name": "question",
+        "description": "The only endpoint"
+      }
+    ],
+    "servers": [
+      {
+        "url": "http://localhost:8070"
+      }
+    ],
+    "paths": {
+      "/question": {
+        "post": {
+          "tags": [
+            "question"
+          ],
+          "summary": "Given a user and question, save a question and answer for the user",
+          "description": "Given a user and question, save a question and answer for the user",
+          "operationId": "saveUser",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuestionPayload"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Successful user question/answer saved",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Failed with invalid payload/params",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "User": {
+          "type": "object",
+          "required": [
+            "name",
+            "email",
+            "phone",
+            "question",
+            "answer"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "example": "John Doe"
+            },
+            "email": {
+              "type": "string",
+              "example": "john.doe@email.com"
+            },
+            "phone": {
+              "type": "number",
+              "example": 11912347539
+            },
+            "question": {
+              "type": "string",
+              "example": "why learn cloud is so hard?"
+            },
+            "answer": {
+              "type": "string",
+              "example": "I think'll never know"
+            }
+          }
+        },
+        "QuestionPayload": {
+          "required": [
+            "question",
+            "answer"
+          ],
+          "properties": {
+            "question": {
+              "type": "string",
+              "example": "why learn cloud is so hard?"
+            },
+            "userId": {
+              "type": "string",
+              "example": "647e681cba99e4353c0de357"
+            }
+          }
+        },
+        "Error": {
+          "type": "object",
+          "properties": {
+            "error": {
+              "type": "string",
+              "example": "you should inform a question through \\\"question\\\"query param"
+            }
+          }
+        }
+      }
+    }
+  }
